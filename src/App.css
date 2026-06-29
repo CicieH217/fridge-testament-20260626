@@ -614,14 +614,14 @@ body {
   transform: translateX(2px);
 }
 
-.recipe-item.grand-slam-recipe {
-  background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
-  border-color: #f39c12;
-}
-
 .recipe-item.urgent-recipe {
   background: linear-gradient(135deg, #fce9e9 0%, #ffffff 100%);
   border-color: #c73d3d;
+}
+
+.recipe-item.soon-recipe {
+  background: linear-gradient(135deg, #ffe8d6 0%, #ffffff 100%);
+  border-color: #e6833b;
 }
 
 .recipe-main {
@@ -658,6 +658,19 @@ body {
 
 .urgent-badge {
   font-size: 14px;
+  font-weight: 600;
+  color: #c73d3d;
+}
+
+.soon-badge {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e6833b;
+}
+
+.expiry-warning {
+  font-size: 16px;
+  margin-left: 4px;
 }
 
 .cooked-badge {
@@ -705,6 +718,38 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.recipe-calories {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  color: #e6833b;
+}
+
+.recipe-health-adjustment {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f0f9f4;
+  color: #2d7a4a;
+  font-size: 11px;
+}
+
+.recipe-health-goal {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #e8f5e9;
+  color: #2d7a4a;
+  font-size: 11px;
 }
 
 .recipe-item.already-cooked {
@@ -1600,6 +1645,235 @@ body {
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.diet-preference-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.diet-preference-card h4 {
+  font-size: 16px;
+  color: #1b2a23;
+  margin-bottom: 8px;
+}
+
+.diet-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.diet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.diet-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+  background: #f5faf7;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  min-height: 80px;
+}
+
+.diet-card:hover {
+  border-color: #7cb89d;
+  transform: translateY(-2px);
+}
+
+.diet-card.selected {
+  background: #eaf6ef;
+  border-color: #2d7a4a;
+}
+
+.diet-card-emoji {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.diet-card-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1b2a23;
+  text-align: center;
+}
+
+.diet-card-check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #2d7a4a;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.diet-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f5faf7;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+}
+
+.diet-option:hover {
+  border-color: #7cb89d;
+}
+
+.diet-option.selected {
+  background: #eaf6ef;
+  border-color: #2d7a4a;
+}
+
+.diet-option input {
+  display: none;
+}
+
+.diet-option .diet-emoji {
+  font-size: 20px;
+}
+
+.diet-option .diet-name {
+  font-weight: 500;
+  color: #1b2a23;
+}
+
+.diet-info-btn {
+  background: #e0e0e0;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  color: #666;
+}
+
+.diet-info-btn:hover {
+  background: #2d7a4a;
+  color: white;
+}
+
+.diet-description-view {
+  background: #f5faf7;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.diet-desc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.diet-desc-emoji {
+  font-size: 40px;
+}
+
+.diet-desc-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #1b2a23;
+}
+
+.diet-desc-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.diet-desc-benefits,
+.diet-desc-keyfoods {
+  font-size: 13px;
+  color: #2d7a4a;
+  margin-bottom: 8px;
+}
+
+.diet-desc-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.diet-desc-cancel {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.diet-desc-confirm {
+  padding: 8px 16px;
+  border: none;
+  background: #2d7a4a;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.diet-desc-confirm:hover {
+  background: #1b5a3a;
+}
+
+.diet-desc-confirm.selected {
+  background: #e6833b;
+}
+
+.diet-desc-confirm.selected:hover {
+  background: #d4723a;
+}
+
+.diet-desc-remove {
+  padding: 8px 16px;
+  border: 1px solid #e6833b;
+  background: white;
+  color: #e6833b;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.diet-desc-remove:hover {
+  background: #fff4e6;
 }
 
 .diet-pattern-card h4 {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>生成 PWA 图标</title>
+</head>
+<body>
+  <h1>PWA 图标生成器</h1>
+  <p>点击下面的按钮下载图标：</p>
+  <button onclick="generateIcon(192)">下载 192x192 图标</button>
+  <button onclick="generateIcon(512)">下载 512x512 图标</button>
+
+  <script>
+    function generateIcon(size) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      // 背景
+      ctx.fillStyle = '#2D7A4A';
+      ctx.fillRect(0, 0, size, size);
+
+      // 绘制冰箱 emoji
+      ctx.font = `${size * 0.6}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('🧊', size / 2, size / 2);
+
+      // 下载
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `icon-${size}.png`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+  </script>
+</body>
+</html>
